@@ -33,7 +33,7 @@ code {
     @apply fixed flex items-center justify-around text-[35px] w-full h-fit bg-white translate-y-[-261%] transition-all duration-[500ms] ease-in-out mt-[20px] z-[21] shadow-boxShadow p-3
   }
   .activeFilter{
-    @apply fixed w-full h-fit bg-white translate-y-[-32%] transition-all duration-[500ms] ease-in-out flex items-center mt-[20px] justify-around text-[35px] z-[21] shadow-boxShadow p-3 flex-wrap
+    @apply fixed w-full h-fit bg-white translate-y-[-32%] transition-all duration-[500ms] ease-in-out flex items-center sm:mt-[20px] mt-[32px] justify-around text-[35px] z-[21] shadow-boxShadow p-3 flex-wrap
   }
   .search{
     @apply fixed flex flex-col items-center justify-around text-[35px] w-full h-1/2 overflow-scroll bg-white translate-y-[-261%] transition-all duration-[500ms] ease-in-out mt-[20px] z-[21] shadow-boxShadow p-3
