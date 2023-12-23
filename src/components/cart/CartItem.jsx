@@ -8,7 +8,7 @@ const CartItem = ({ data }) => {
   const updateCartItem = async (e,key)=>{
     var payload = {
       key,
-      val: key == "quantity"?parseInt(e.target.value):e.target.value,
+      val: key === "quantity"?parseInt(e.target.value):e.target.value,
       id:data._id
     }
     dispatch(updateCart(payload));

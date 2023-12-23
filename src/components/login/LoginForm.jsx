@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addUser, setToken } from "../../store/slices/userSlice";
+import { addUser } from "../../store/slices/userSlice";
 
 const LoginForm = ({setShowLoginModal}) => {
   const dispatch = useDispatch()
@@ -146,7 +146,7 @@ const LoginForm = ({setShowLoginModal}) => {
           <button className="rounded-[20px] border-[1px] border-solid border-black/[0.9] bg-black/[0.9] text-[#ffffff] text-[12px] font-bold py-[12px] px-[45px] uppercase transition-transform duration-1000 ease-in" onClick={handleSignUp}>
             Sign Up
           </button>
-          {err != "" && <div className="text-red-600 mt-1">{err}</div>}
+          {err !== "" && <div className="text-red-600 mt-1">{err}</div>}
         </form>
       </div>
       {/* Sign in container */}

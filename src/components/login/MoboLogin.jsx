@@ -150,7 +150,7 @@ const MoboLogin = ({ setShowLoginModal }) => {
           >
             Sign Up
           </button>
-          {err != "" && <div className="text-red-600 mt-1">{err}</div>}
+          {err !== "" && <div className="text-red-600 mt-1">{err}</div>}
           <p className="text-[13px] text-slate-400 mt-5">
             Already have an account?{" "}
             <span
