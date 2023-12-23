@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+@layer components{
+  .sideNav{
+    @apply fixed flex flex-col items-center justify-around text-[35px] w-full h-fit bg-white translate-y-[-200%] transition-all duration-[500ms] ease-in-out mt-[20px] z-[50] shadow-boxShadow md:hidden
+  }
+  .activeSideNav{
+    @apply fixed w-full h-fit bg-white translate-y-[-10%] transition-all duration-[500ms] ease-in-out flex flex-col items-center mt-[20px] justify-around text-[35px] z-[50] shadow-boxShadow md:hidden
+  }
+  .filter{
+    @apply fixed flex items-center justify-around text-[35px] w-full h-fit bg-white translate-y-[-261%] transition-all duration-[500ms] ease-in-out mt-[20px] z-[21] shadow-boxShadow p-3
+  }
+  .activeFilter{
+    @apply fixed w-full h-fit bg-white translate-y-[-32%] transition-all duration-[500ms] ease-in-out flex items-center mt-[20px] justify-around text-[35px] z-[21] shadow-boxShadow p-3 flex-wrap
+  }
+  .search{
+    @apply fixed flex flex-col items-center justify-around text-[35px] w-full h-1/2 overflow-scroll bg-white translate-y-[-261%] transition-all duration-[500ms] ease-in-out mt-[20px] z-[21] shadow-boxShadow p-3
+  }
+  .activeSearch{
+    @apply fixed w-full flex-col h-1/2 bg-white translate-y-[-32%] transition-all duration-[500ms] ease-in-out flex items-center mt-[97px] justify-around text-[35px] z-[21] shadow-boxShadow p-3 overflow-scroll
+  }
+  .nav_li{
+    @apply border-b-2 w-full py-3
+  }
+}
