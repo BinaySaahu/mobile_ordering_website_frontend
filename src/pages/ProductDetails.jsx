@@ -41,8 +41,9 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="w-full md:py-20">
+    <>
       <Toaster position="top-center" reverseOrder={false} />
+    <div className="w-full md:py-20">
       <div className="w-full max-w-[1280px] px-5 md:px-10 mx-auto">
         <div className="flex flex-col lg:flex-row md:px-10 gap-[50px] lg:gap-[100px]">
           {/* Left col start */}
@@ -107,6 +108,7 @@ const ProductDetails = () => {
         {/* <RelatedProducts /> */}
       </div>
     </div>
+    </>
   );
 };
 

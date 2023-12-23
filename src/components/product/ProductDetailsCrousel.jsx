@@ -12,7 +12,7 @@ const ProductDetailsCrousel = ({images}) => {
             className='productCarousel'
         >
           {images.map((img,idx)=>(
-            <img src={img} alt="" key={idx}/>
+            <img src={img} alt="" key={idx} className='object-contain max-h-[500px]'/>
           ))}
         </Carousel>
       

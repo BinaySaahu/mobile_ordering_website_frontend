@@ -1,7 +1,8 @@
 import React from "react";
 
 const ProfileMenu = ({setShowLoginModal,isLoggedIn}) => {
-  const handleSubmit = ()=>{
+  const handleSubmit = (e)=>{
+    e.preventDefault()
     if(!isLoggedIn){
       setShowLoginModal(true);
 
