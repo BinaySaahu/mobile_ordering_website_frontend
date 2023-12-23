@@ -46,8 +46,13 @@ const Nav = ({setShowLoginModal,showFilter,setShowFilter,setShowSearch,products,
   },[])
 
   const dataInp = (e)=>{
-    setShowSearch(true)
-    setSearchedProducts(products.filter((p)=> p.name.toLowerCase().includes(e.target.value.toLowerCase())))
+    if(e.target.value === ""){
+      setShowSearch(false)
+      setSearchedProducts([])
+    }else{
+      setShowSearch(true)
+      setSearchedProducts(products.filter((p)=> p.name.toLowerCase().includes(e.target.value.toLowerCase())))
+    }
     // console.log(searched_products)
   }
   return (
