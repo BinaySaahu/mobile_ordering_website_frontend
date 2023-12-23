@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../store/slices/userSlice";
+import toast, { Toaster } from "react-hot-toast";
 
 const LoginForm = ({setShowLoginModal}) => {
   const dispatch = useDispatch()
@@ -43,10 +44,12 @@ const LoginForm = ({setShowLoginModal}) => {
         console.log(response)
         
         if (response.status === 200) {
+
           const token = response.data.secrete_token
           dispatch(addUser({...response.data.user,token}))
           // dispatch(setToken(response.data.secrete_token));
           setShowLoginModal(false)
+          toast.success('Successfully Created account!')
           console.log("Logged in");
         } else {
           console.log("error");
@@ -81,6 +84,7 @@ const LoginForm = ({setShowLoginModal}) => {
           dispatch(addUser({...response.data.user,token}))
           // dispatch(setToken(response.data.secrete_token));
           setShowLoginModal(false)
+          toast.success('Successfully Logged in!')
           
           console.log("Logged in");
         } else {
@@ -114,6 +118,7 @@ const LoginForm = ({setShowLoginModal}) => {
   },[user])
   return (
     <div className="bg-[#fff] rounded-[10px] shadow-box_shadow_login relative overflow-hidden w-[678px] max-w-full min-h-[400px] md:block hidden">
+       <Toaster position="top-center" reverseOrder={false} />
       {/* Sign up container */}
       <div
         className={`absolute top-0 h-full transition-all ease-in-out left-0 w-1/2 opacity-0 z-[2] duration-1000 ${

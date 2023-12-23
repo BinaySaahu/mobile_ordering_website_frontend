@@ -2,35 +2,47 @@ import React from "react";
 import ProductDetailsCrousel from "../components/product/ProductDetailsCrousel";
 import { useLocation } from "react-router-dom";
 import { addToCart } from "../store/slices/cartSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToWishlist } from "../store/slices/wishListSlice";
+import toast, { Toaster } from "react-hot-toast";
 
 const ProductDetails = () => {
+  const User = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const location = useLocation();
   console.log(location);
   const state = location.state?.data;
   console.log(state);
   const addItemToCart = async () => {
-    const selectedQuantityPrice = parseInt(state.price.slice(1))
+    if(User.isLoggedIn){
+      const selectedQuantityPrice = parseInt(state.price.slice(1));
       dispatch(
         addToCart({
           ...state,
           selectedQuantityPrice: selectedQuantityPrice,
         })
       );
+
+    }else{
+      toast.error("Please log in to add items to wishlist")
+    }
   };
   const addItemToWishList = async () => {
     // console.log(cart.cartItems)
+    if (User.isLoggedIn) {
       dispatch(
         addToWishlist({
           ...state,
         })
       );
+    } else {
+      toast.error("Please log in to add items to wishlist")
+    }
   };
 
   return (
     <div className="w-full md:py-20">
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="w-full max-w-[1280px] px-5 md:px-10 mx-auto">
         <div className="flex flex-col lg:flex-row md:px-10 gap-[50px] lg:gap-[100px]">
           {/* Left col start */}
@@ -73,10 +85,16 @@ const ProductDetails = () => {
               </div>
             </div>
             {/* product size end */}
-            <button className="w-full py-4 rounded-full bg-black text-white text-lg font-medium transition-transform active:scale-90 mb-3 hover:opacity-75" onClick={addItemToCart}>
+            <button
+              className="w-full py-4 rounded-full bg-black text-white text-lg font-medium transition-transform active:scale-90 mb-3 hover:opacity-75"
+              onClick={addItemToCart}
+            >
               Add to Cart
             </button>
-            <button className="w-full py-4 rounded-full bg-white text-black text-lg font-medium transition-transform active:scale-90 mb-10 hover:opacity-75 flex justify-center items-center gap-2 border border-black" onClick={addItemToWishList}>
+            <button
+              className="w-full py-4 rounded-full bg-white text-black text-lg font-medium transition-transform active:scale-90 mb-10 hover:opacity-75 flex justify-center items-center gap-2 border border-black"
+              onClick={addItemToWishList}
+            >
               Wishlist
             </button>
             <div>
