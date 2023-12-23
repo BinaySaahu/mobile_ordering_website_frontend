@@ -24,7 +24,8 @@ import SearchBox from './components/SearchBox';
 
 
 function App() {
-  axios.defaults.baseURL = "http://localhost:8001"
+  axios.defaults.baseURL = "https://mobile-ordering-website-backend.onrender.com"
+  // axios.defaults.baseURL = "http://localhost:8001"
   const [active, setActive] = useState(false);
   const [products,setProducts] = useState([])
   const [searchedProducts,setSearchedProducts] = useState([])
